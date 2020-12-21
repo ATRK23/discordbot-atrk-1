@@ -15,7 +15,7 @@ client.on("ready", () => {
    // game activity, PLAYING STREAMING LISTENING WATCHING   { type: ""}
    console.clear();
    console.log(`connected`);
-  client.channels.get(logChannelId).send('\nConnecté \nActivity mise sur   ' + how + '   ' + '"' + game + '"');
+  client.channels.cache.get(logChannelId).send('\nConnecté \nActivity mise sur   ' + how + '   ' + '"' + game + '"');
 });
 
 
@@ -55,7 +55,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     .catch(function() {
     })
      console.log('ping pong effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(message.member.user + 'à effectué ping pong');
+     client.channels.cache.get(logChannelId).send(message.member.user + 'à effectué ping pong');
   };
   
 });
@@ -72,7 +72,7 @@ client.on("message", message => {
       msg.delete(120000)
     })
     .catch();console.log('-\n' + prefix + 'invite effectué par ' + message.member.user.tag);
-    client.channels.get(logChannelId).send(prefix + 'invite effectué par ' + message.member.user);
+    client.channels.cache.get(logChannelId).send(prefix + 'invite effectué par ' + message.member.user);
   };
 });
 
@@ -86,7 +86,7 @@ client.on("message", message => {
      message.delete(1000);
      if (!VC)
        return message.reply("Tu dois d'abord être connecté à un salon audio !")
-       .then(client.channels.get(logChannelId).send(prefix + 'pt1 échoué par ' + message.member.user.tag));
+       .then(client.channels.cache.get(logChannelId).send(prefix + 'pt1 échoué par ' + message.member.user.tag));
     VC.join()
       .then(connection => {
           const dispatcher = connection.playFile('./assets/peter1.mp3');
@@ -96,7 +96,7 @@ client.on("message", message => {
       
       })
       .catch(console.error);console.log('PT 1 effectué PAR ' + message.member.user.tag);
-      client.channels.get(logChannelId).send(prefix + 'pt1 effectué par ' + message.member.user);
+      client.channels.cache.get(logChannelId).send(prefix + 'pt1 effectué par ' + message.member.user);
    };
  });
 
@@ -110,7 +110,7 @@ client.on("message", message => {
     message.delete(1000);
     if (!VC)
       return message.reply("Tu dois d'abord être connecté à un salon audio !")
-      .then(client.channels.get(logChannelId).send(prefix + 'pt2 échoué par ' + message.member.user));
+      .then(client.channels.cache.get(logChannelId).send(prefix + 'pt2 échoué par ' + message.member.user));
    VC.join()
      .then(connection => {
          const dispatcher = connection.playFile('./assets/peter2.mp3');
@@ -120,7 +120,7 @@ client.on("message", message => {
      
      })
      .catch(console.error);console.log('PT 2 effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + 'pt2 effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + 'pt2 effectué par ' + message.member.user);
   };
 });
 
@@ -135,7 +135,7 @@ client.on('message', message => {
     message.delete(1000);
     if (!VC)
       return message.reply("Tu dois d'abord être connecté à un salon audio !")
-      .then(client.channels.get(logChannelId).send(prefix + 'pt3 échoué par ' + message.member.user));
+      .then(client.channels.cache.get(logChannelId).send(prefix + 'pt3 échoué par ' + message.member.user));
    VC.join()
      .then(connection => {
          const dispatcher = connection.playFile('./assets/peter3.mp3');
@@ -145,7 +145,7 @@ client.on('message', message => {
      
      })
      .catch(console.error);console.log('PT 2 effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + 'pt3 effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + 'pt3 effectué par ' + message.member.user);
   };
 });
 
@@ -160,7 +160,7 @@ client.on('message', message => {
     message.delete(1000);
     if (!VC)
       return message.reply("Tu dois d'abord être connecté à un salon audio !")
-      .then(client.channels.get(logChannelId).send(prefix + 'nils échoué par ' + message.member.user));
+      .then(client.channels.cache.get(logChannelId).send(prefix + 'nils échoué par ' + message.member.user));
    VC.join()
      .then(connection => {
          const dispatcher = connection.playFile('./assets/nils.mp3');
@@ -169,7 +169,7 @@ client.on('message', message => {
      
      })
      .catch(console.error);console.log('Nils effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + 'nils effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + 'nils effectué par ' + message.member.user);
   };
 });
 
@@ -183,7 +183,7 @@ client.on('message', message => {
     message.delete(1000);
     if (!VC)
       return message.reply("Tu dois d'abord être connecté à un salon audio !")
-      .then(client.channels.get(logChannelId).send(prefix + 'ravi échoué par ' + message.member.user));
+      .then(client.channels.cache.get(logChannelId).send(prefix + 'ravi échoué par ' + message.member.user));
    VC.join()
      .then(connection => {
          const dispatcher = connection.playFile('./assets/OhRavi.mp3');
@@ -192,7 +192,7 @@ client.on('message', message => {
      
      })
      .catch(console.error);console.log('Ravi effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + 'ravi effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + 'ravi effectué par ' + message.member.user);
 
   };
 });
@@ -208,7 +208,7 @@ client.on('message', message => {
     message.delete(1000);
     if (!VC)
       return message.reply("Tu dois d'abord être connecté à un salon audio !")
-      .then(client.channels.get(logChannelId).send(prefix + 'tchon échoué par ' + message.member.user));
+      .then(client.channels.cache.get(logChannelId).send(prefix + 'tchon échoué par ' + message.member.user));
    VC.join()
      .then(connection => {
          const dispatcher = connection.playFile('./assets/TchonSylDur.mp3');
@@ -217,7 +217,7 @@ client.on('message', message => {
      
      })
      .catch(console.error);console.log('tchon effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + 'tchon effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + 'tchon effectué par ' + message.member.user);
   };
 });
 
@@ -230,7 +230,7 @@ client.on('message', message => {
     message.delete(1000);
     if (!VC)
       return message.reply("Tu dois d'abord être connecté à un salon audio !")
-      .then(client.channels.get(logChannelId).send(prefix + 'jason échoué par ' + message.member.user));
+      .then(client.channels.cache.get(logChannelId).send(prefix + 'jason échoué par ' + message.member.user));
    VC.join()
      .then(connection => {
          const dispatcher = connection.playFile('./assets/jason.mp3');
@@ -240,7 +240,7 @@ client.on('message', message => {
      
      })
      .catch(console.error);console.log('jason effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + 'jason effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + 'jason effectué par ' + message.member.user);
   };
 });
 
@@ -253,7 +253,7 @@ client.on('message', message => {
     message.delete(1000);
     if (!VC)
       return message.reply("Tu dois d'abord être connecté à un salon audio !")
-      .then(client.channels.get(logChannelId).send(prefix + '90s1 échoué par ' + message.member.user));
+      .then(client.channels.cache.get(logChannelId).send(prefix + '90s1 échoué par ' + message.member.user));
    VC.join()
      .then(connection => {
          const dispatcher = connection.playFile('./assets/90s1.mp3');
@@ -263,7 +263,7 @@ client.on('message', message => {
      
      })
      .catch(console.error);console.log('jason effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + '90s1 effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + '90s1 effectué par ' + message.member.user);
   };
 });
 
@@ -278,7 +278,7 @@ client.on('message', message => {
     message.delete(1000);
     if (!VC)
       return message.reply("Tu dois d'abord être connecté à un salon audio !")
-      .then(client.channels.get(logChannelId).send(prefix + '90s2 échoué par ' + message.member.user));
+      .then(client.channels.cache.get(logChannelId).send(prefix + '90s2 échoué par ' + message.member.user));
    VC.join()
      .then(connection => {
          const dispatcher = connection.playFile('./assets/90s2.mp3');
@@ -288,7 +288,7 @@ client.on('message', message => {
      
      })
      .catch(console.error);console.log('jason effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + '90s2 effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + '90s2 effectué par ' + message.member.user);
   };
 });
 
@@ -301,7 +301,7 @@ client.on('message', message => {
     message.delete(1000);
     if (!VC)
       return message.reply("Tu dois d'abord être connecté à un salon audio !")
-      .then(client.channels.get(logChannelId).send(prefix + 'bjr échoué par ' + message.member.user));
+      .then(client.channels.cache.get(logChannelId).send(prefix + 'bjr échoué par ' + message.member.user));
    VC.join()
      .then(connection => {
          const dispatcher = connection.playFile('./assets/bjr.mp3');
@@ -311,7 +311,7 @@ client.on('message', message => {
      
      })
      .catch(console.error);console.log('bjr effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + 'bjr effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + 'bjr effectué par ' + message.member.user);
   };
 });
 
@@ -325,7 +325,7 @@ client.on('message', message => {
     .catch(function() {
     })
      console.log('shut up e-boy effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + 'eboy1 effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + 'eboy1 effectué par ' + message.member.user);
   };
   
 });
@@ -341,7 +341,7 @@ client.on('message', message => {
     .catch(function() {
     })
      console.log('ta di koi la effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + 'koi1 effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + 'koi1 effectué par ' + message.member.user);
   };
   
 });
@@ -365,7 +365,7 @@ client.on('message', message => {
      
      })
      .catch(console.error);console.log('nikpd effectué par ' + message.member.user.tag);
-     client.channels.get(logChannelId).send(prefix + 'nikpd effectué par ' + message.member.user);
+     client.channels.cache.get(logChannelId).send(prefix + 'nikpd effectué par ' + message.member.user);
   };
 });
 
