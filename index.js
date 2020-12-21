@@ -9,8 +9,8 @@ var prefix = (config.prefix);
 //activité
 
 client.on("ready", () => {
-  var game = (client.users.size + ' personnes') //activité 
-  var how = ("WATCHING")
+  var game = ('ferme ta gueule') //activité 
+  var how = ("PLAYING")
   client.user.setActivity(game, { type: how});
    // game activity, PLAYING STREAMING LISTENING WATCHING   { type: ""}
    console.clear();
