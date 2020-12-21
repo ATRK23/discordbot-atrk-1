@@ -14,7 +14,7 @@ client.on("ready", () => {
   client.user.setActivity(game, { type: how});
    // game activity, PLAYING STREAMING LISTENING WATCHING   { type: ""}
    console.clear();
-   console.log(`Je suis connecté sur ${client.guilds.size} serveur(s), pour ${client.users.size} utilisateurs !\n`);
+   console.log(`connected`);
   client.channels.get(logChannelId).send('\nConnecté \nActivity mise sur   ' + how + '   ' + '"' + game + '"');
 });
 
